@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+  /* 🌸 Falling petals */
+  .petal {
+    position: fixed;
+    top: -10px;
+    font-size: 24px;
+    animation: fall linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+    }
+}
+    .login-box, .content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff6b81;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff4f6a;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      color: #ff4f6a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Password Screen -->
+  <div class="login-box" id="loginBox">
+    <h2>🔒 Private Message</h2>
+    <p>Enter the password to unlock my heart 💖</p>
+    <input type="password" id="password" placeholder="Enter password" />
+    <br />
+    <button onclick="checkPassword()">Unlock</button>
+    <p id="error" style="color:red; display:none;">Wrong password 💔</p>
+  </div>
+
+  <!-- Apology Content -->
+  <div class="content" id="content" style="display:none;">
+    <h1>Your Message ❤️</h1>
+    <p>
+      My dear princess,
+
+ 
+
+I know i have hurt you so much and being a disappointment on you, Im so sorry that Im not giving you love, care, attention anything at all, 😢 at the limit that you don’t feel anything at all, Its such a shame to me. 😔
+
+But It won’t happen from now on, I will give you time, Ill love you the way I used to love you❤️, care you, making you feel heard, seen, give you all the love and happiness you deserve,🥹 you are such a angel princess, I feel so guilty to hurt such an innocent soul 😭😭
+
+
+
+I can’t change what I did at past, But I’ll surely be the man who live up to you expectations. I love youu soooo much my dear, I know IM not giving enough now days, but I really loveee youuu soooo much❤️❤️❤️ paila j vayo vayo tanta lets leave that behind, lets start our new journey, like our old days, just tantan and tamman hamro college life ko jastaii. 
+
+Will you give me a chance princess? 
+
+To make up my mistakes, can we start it over again?🥹🥹 please 🥹🥹
+
+
+
+I can’t loose youu my tantan, you are my heart and soul, I can’t bear it, I have given lotss of trouble to you, but life is all about leaving past and start over nii haii 🥹🥹🥹. Malai tahaxa Ma timro layak xaina tei pani, this heart only wants you onlyy youu k mutuu 😭😭😭😭😭😭
+
+
+
+Halka dhilo vayea ni Happy valentine day my sweetheart 💕❤️. Can we start it over again ni haii 🥹🥹🥹
+
+
+
+                                    Yours one and only,
+
+                                       Tamman
+    </p>
+
+    <!-- Forgive Me Section -->
+    <div id="forgiveSection">
+      <h2>Can you forgive me? 💖</h2>
+      <button onclick="forgiven()">Yes</button>
+    </div>
+
+    <!-- Valentine Question (Hidden at first) -->
+    <div id="valentineSection" class="hidden">
+      <h2>Will you be my Valentine? ❤️</h2>
+      <button onclick="valentineYes()">Yes</button>
+      <button id="noBtn" onmouseover="moveNoButton()">No</button>
+    </div>
+
+    <!-- Final Message -->
+    <div id="finalMessage" class="hidden">
+      <h2>You made me the happiest person alive! 💞</h2>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="your-music-file.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+  const correctPassword = "Tantan"; // your password
+
+  function checkPassword() {
+    const input = document.getElementById("password").value.trim();
+    const error = document.getElementById("error");
+
+    if (input === correctPassword) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+
+      // Play music safely
+      const music = document.getElementById("bgMusic");
+      if (music) {
+        music.play().catch(() => {});
+      }
+    } else {
+      error.style.display = "block";
+    }
+  }
+
+  function forgiven() {
+    document.getElementById("forgiveSection").style.display = "none";
+    document.getElementById("valentineSection").style.display = "block";
+  }
+
+  function valentineYes() {
+    document.getElementById("valentineSection").style.display = "none";
+    document.getElementById("finalMessage").style.display = "block";
+  }
+
+  function moveNoButton() {
+    const btn = document.getElementById("noBtn");
+    btn.style.position = "relative";
+    btn.style.left = Math.random() * 200 - 100 + "px";
+    btn.style.top = Math.random() * 200 - 100 + "px";
+  }
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+    petal.style.opacity = Math.random();
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+      petal.remove();
+    }, 10000);
+  }
+
+  setInterval(createPetal, 300);
+</script>
+
+</body>
+</html>
